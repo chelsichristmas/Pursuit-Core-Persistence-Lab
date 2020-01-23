@@ -20,6 +20,7 @@
 		6BB0E4AD23D903E1009DCF89 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0E4AC23D903E1009DCF89 /* AppError.swift */; };
 		6BB0E4AF23D90602009DCF89 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0E4AE23D90602009DCF89 /* NetworkHelper.swift */; };
 		6BB0E4B223D90831009DCF89 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0E4B123D90831009DCF89 /* Secrets.swift */; };
+		6BB0E4D623DA3573009DCF89 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0E4D523DA3573009DCF89 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		6BB0E4AC23D903E1009DCF89 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		6BB0E4AE23D90602009DCF89 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		6BB0E4B123D90831009DCF89 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		6BB0E4D523DA3573009DCF89 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +73,15 @@
 		6B4AC5FF23D7B5C9003FDC4C /* Persistence-Lab */ = {
 			isa = PBXGroup;
 			children = (
+				6B4AC61623D8F5A8003FDC4C /* Photo.swift */,
 				6B4AC60023D7B5C9003FDC4C /* AppDelegate.swift */,
 				6B4AC60223D7B5C9003FDC4C /* SceneDelegate.swift */,
 				6BB0E4AA23D90398009DCF89 /* UIImageView+Extensions.swift */,
 				6BB0E4B123D90831009DCF89 /* Secrets.swift */,
 				6B4AC60423D7B5C9003FDC4C /* ViewController.swift */,
+				6BB0E4D523DA3573009DCF89 /* DetailViewController.swift */,
 				6B4AC60623D7B5C9003FDC4C /* Main.storyboard */,
 				6B4AC61423D8DCFE003FDC4C /* PhotoCell.swift */,
-				6B4AC61623D8F5A8003FDC4C /* Photo.swift */,
 				6B4AC60923D7B5CD003FDC4C /* Assets.xcassets */,
 				6B4AC60B23D7B5CD003FDC4C /* LaunchScreen.storyboard */,
 				6B4AC60E23D7B5CD003FDC4C /* Info.plist */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB0E4D623DA3573009DCF89 /* DetailViewController.swift in Sources */,
 				6B4AC61523D8DCFE003FDC4C /* PhotoCell.swift in Sources */,
 				6BB0E4B223D90831009DCF89 /* Secrets.swift in Sources */,
 				6BB0E4AF23D90602009DCF89 /* NetworkHelper.swift in Sources */,

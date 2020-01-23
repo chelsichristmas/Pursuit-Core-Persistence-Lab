@@ -9,18 +9,18 @@
 import Foundation
 
 struct PhotosAPIClient {
-    static func fetchRecipe(for searchQuery: String,
-                            completion: @escaping (Result<[Photo], AppError>) -> ()) {
+    static func fetchPhoto(for searchQuery: String,
+                            completion: @escaping (Result<[PhotoInfo], AppError>) -> ()) {
       
-      let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "tacos"
+      let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "flower"
       
       // using string interpolation to build endpoint url
-      let photoEndpointURL = "https://pixabay.com/api/videos/?key=15003239-b376045a59a74ecfff7bb35cd&q="
+      let photoEndpointURL = "https://pixabay.com/api/?key=15003239-b376045a59a74ecfff7bb35cd&q=\(searchQuery)"
       
       // Later we will look at URLComponents and URLQueryItems
       
-      guard let url = URL(string: recipeEndpointURL) else {
-        completion(.failure(.badURL(recipeEndpointURL)))
+      guard let url = URL(string: photoEndpointURL) else {
+        completion(.failure(.badURL(photoEndpointURL)))
         return
       }
       
@@ -32,13 +32,13 @@ struct PhotosAPIClient {
           completion(.failure(.networkClientError(appError)))
         case .success(let data):
           do {
-            let searchResults = try JSONDecoder().decode(RecipeSearch.self, from: data)
+            let searchResults = try JSONDecoder().decode(Photo.self, from: data)
             
             // 1. use searchResults to create an array of recipes
-            let recipes = searchResults.hits.map { $0.recipe }
+            let photos = searchResults.hits
             
             // 2. capture the array of recipes in the completion handler
-            completion(.success(recipes))
+            completion(.success(photos))
             
           } catch {
             completion(.failure(.decodingError(error)))

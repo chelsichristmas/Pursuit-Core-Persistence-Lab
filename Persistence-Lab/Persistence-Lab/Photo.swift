@@ -15,14 +15,9 @@ struct Photo: Codable {
 }
 
 struct PhotoInfo: Codable {
-    var videos: VideoInfo
-    var userImageURL: String
+    var largeImageURL: String
+    var likes: Int?
+    var imageURL: String
+    var tags: String
 }
 
-struct VideoInfo: Codable {
-    var tiny: VideoSizeInfo
-}
-
-struct VideoSizeInfo: Codable {
-    var url: String
-}
