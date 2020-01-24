@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var searchQuery = "pizza"
     var photos = [PhotoInfo](){
         didSet {
             DispatchQueue.main.async {
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
-        searchPhotos(searchQuery: "pizza")
+        searchPhotos(searchQuery: searchQuery)
         
     }
     
@@ -40,6 +41,18 @@ class ViewController: UIViewController {
                 self?.photos = photos
             }
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = collectionView.indexPathsForSelectedItems else {
+            fatalError("Unable to segue to detail view controller")
+        }
+        
+        let photo = photos[indexPath.first!.row]
+        detailVC.photo = photo
+        detailVC.searchQuery = searchQuery
+        
+        
     }
 
 
@@ -62,6 +75,12 @@ extension ViewController: UICollectionViewDataSource {
         
         return cell
     }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let detailVC = storyboard?.instantiateInitialViewController() as? DetailViewController
+//        let aPhoto = photos[indexPath.row]
+//        detailVC?.photo = aPhoto
+//        navigationController?.pushViewController(detailVC!, animated: true)
+//    }
     
     
 }
@@ -99,7 +118,7 @@ extension ViewController: UISearchBarDelegate {
             print("Please type in ma valid entry")
             return
         }
-        
+        searchQuery = searchText
         searchPhotos(searchQuery: searchText)
     }
     
